@@ -1,3 +1,4 @@
+import 'package:awariapp_assessment/core/widgets/auto_scrolling_text.dart';
 import 'package:awariapp_assessment/screens/navigation/main_navigation.dart';
 import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
@@ -37,7 +38,9 @@ class OnboardingScreen extends StatelessWidget {
                   child: Stack(
                     children: [
                       ClipRRect(
-                        borderRadius: BorderRadius.circular(40),
+                        borderRadius: BorderRadius.vertical(
+                          bottom: Radius.circular(30),
+                        ),
                         child: Image.network(
                           'https://plus.unsplash.com/premium_photo-1666184127688-ed05d3fd3af4?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                           fit: BoxFit.cover,
@@ -120,18 +123,7 @@ class OnboardingScreen extends StatelessWidget {
                       borderRadius: BorderRadius.circular(30),
                       border: Border.all(color: AppTheme.darkSlate, width: 2),
                     ),
-                    child: const Text(
-                      'TRENDY COLLECTIONS',
-                      textAlign: TextAlign.center,
-                      maxLines: 1,
-                      overflow: TextOverflow.clip,
-                      style: TextStyle(
-                        fontSize: 38,
-                        fontWeight: FontWeight.w900,
-                        color: AppTheme.darkSlate,
-                        letterSpacing: -1,
-                      ),
-                    ),
+                    child: AutoScrollingText(text: 'TRENDING COLLECTIONS'),
                   ),
                 ),
                 SpringButton(
@@ -156,7 +148,7 @@ class OnboardingScreen extends StatelessWidget {
                       'Discover Now',
                       style: TextStyle(
                         fontSize: 20,
-                        fontWeight: FontWeight.w400,
+                        fontWeight: FontWeight.w500,
                         color: AppTheme.darkSlate,
                       ),
                     ),

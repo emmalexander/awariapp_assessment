@@ -1,3 +1,4 @@
+import 'package:awariapp_assessment/screens/home/home_screen.dart';
 import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/spring_button.dart';
@@ -13,14 +14,7 @@ class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-    const Scaffold(
-      body: Center(
-        child: Text(
-          'Home Screen',
-          style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
-        ),
-      ),
-    ),
+     const HomeScreen(),
     const Scaffold(
       body: Center(
         child: Text(
