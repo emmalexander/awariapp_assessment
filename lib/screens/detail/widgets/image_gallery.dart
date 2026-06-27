@@ -4,8 +4,9 @@ import '../../../core/widgets/spring_button.dart';
 
 class ImageGallery extends StatefulWidget {
   final List<String> imageUrls;
+  final double sectionHeight;
 
-  const ImageGallery({super.key, required this.imageUrls});
+  const ImageGallery({super.key, required this.imageUrls, required this.sectionHeight});
 
   @override
   State<ImageGallery> createState() => _ImageGalleryState();
@@ -17,7 +18,7 @@ class _ImageGalleryState extends State<ImageGallery> {
   @override
   Widget build(BuildContext context) {
     return Container(
-      height: 350,
+      height: widget.sectionHeight,
       decoration: BoxDecoration(
         color: AppTheme.background,
         borderRadius: BorderRadius.circular(30),

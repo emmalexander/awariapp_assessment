@@ -237,6 +237,7 @@ class _DetailScreenState extends State<DetailScreen> {
   @override
   Widget build(BuildContext context) {
     final state = AppStateProvider.of(context);
+    final imageSectionHeight = MediaQuery.sizeOf(context).height * 0.36;
 
     return Scaffold(
       body: SafeArea(
@@ -319,7 +320,10 @@ class _DetailScreenState extends State<DetailScreen> {
             Expanded(
               child: Column(
                 children: [
-                  ImageGallery(imageUrls: widget.product.galleryUrls),
+                  ImageGallery(
+                    imageUrls: widget.product.galleryUrls,
+                    sectionHeight: imageSectionHeight,
+                  ),
                   SizedBox(height: 4),
                   Expanded(
                     child: Container(
@@ -341,8 +345,8 @@ class _DetailScreenState extends State<DetailScreen> {
                                 child: Text(
                                   widget.product.name,
                                   style: const TextStyle(
-                                    fontSize: 22,
-                                    fontWeight: FontWeight.w800,
+                                    fontSize: 18,
+                                    fontWeight: FontWeight.w600,
                                     color: AppTheme.textPrimary,
                                   ),
                                 ),
@@ -352,18 +356,18 @@ class _DetailScreenState extends State<DetailScreen> {
                                 'Price: €${widget.product.price.toStringAsFixed(0)}',
                                 style: const TextStyle(
                                   fontSize: 20,
-                                  fontWeight: FontWeight.w800,
+                                  fontWeight: FontWeight.w700,
                                   color: AppTheme.textPrimary,
                                 ),
                               ),
                             ],
                           ),
-                          const SizedBox(height: 16),
+                          const SizedBox(height: 8),
                           const Text(
                             'Select size',
                             style: TextStyle(
                               fontSize: 14,
-                              fontWeight: FontWeight.bold,
+                              fontWeight: FontWeight.w400,
                               color: AppTheme.textPrimary,
                             ),
                           ),

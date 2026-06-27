@@ -14,7 +14,7 @@ class _MainNavigationState extends State<MainNavigation> {
   int _currentIndex = 0;
 
   final List<Widget> _screens = [
-     const HomeScreen(),
+    const HomeScreen(),
     const Scaffold(
       body: Center(
         child: Text(

@@ -53,7 +53,7 @@ class _AutoScrollingTextState extends State<AutoScrollingText> {
       child: Text(
         widget.text,
         style: const TextStyle(
-          fontSize: 80,
+          fontSize: 70,
           fontWeight: FontWeight.w700,
           color: AppTheme.darkSlate,
         ),
