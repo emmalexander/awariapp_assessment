@@ -1,3 +1,4 @@
+import 'package:awariapp_assessment/screens/navigation/main_navigation.dart';
 import 'package:flutter/material.dart';
 import '../../core/theme/app_theme.dart';
 import '../../core/widgets/spring_button.dart';
@@ -40,6 +41,36 @@ class OnboardingScreen extends StatelessWidget {
                         child: Image.network(
                           'https://plus.unsplash.com/premium_photo-1666184127688-ed05d3fd3af4?q=80&w=987&auto=format&fit=crop&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D',
                           fit: BoxFit.cover,
+                          frameBuilder:
+                              (context, child, frame, wasSynchronouslyLoaded) {
+                                if (frame == null) {
+                                  return Container(
+                                    color: AppTheme.accentPeach.withValues(
+                                      alpha: 0.2,
+                                    ),
+                                    alignment: Alignment.center,
+                                    child: const Icon(
+                                      Icons.image_outlined,
+                                      size: 48,
+                                      color: AppTheme.accentPeach,
+                                    ),
+                                  );
+                                }
+                                return child;
+                              },
+                          loadingBuilder: (context, child, loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                color: AppTheme.accentPeach,
+                                value:
+                                    loadingProgress.expectedTotalBytes != null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                          loadingProgress.expectedTotalBytes!
+                                    : null,
+                              ),
+                            );
+                          },
                           errorBuilder: (context, error, stackTrace) {
                             return Container(
                               color: AppTheme.accentPeach.withValues(
@@ -103,15 +134,14 @@ class OnboardingScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                //const SizedBox(height: 2),
                 SpringButton(
                   onTap: () {
-                    // Navigator.pushReplacement(
-                    //   context,
-                    //   MaterialPageRoute(
-                    //     builder: (context) => const MainNavigation(),
-                    //   ),
-                    // );
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(
+                        builder: (context) => const MainNavigation(),
+                      ),
+                    );
                   },
                   child: Container(
                     width: double.infinity,

@@ -14,7 +14,7 @@ class AppTheme {
   static ThemeData get lightTheme {
     return ThemeData(
       useMaterial3: true,
-      scaffoldBackgroundColor: background,
+      scaffoldBackgroundColor: darkSlate,
       primaryColor: darkSlate,
       colorScheme: const ColorScheme.light(
         primary: darkSlate,
@@ -27,6 +27,10 @@ class AppTheme {
       highlightColor: Colors.transparent,
       hoverColor: Colors.transparent,
       splashColor: Colors.transparent,
+      bottomNavigationBarTheme: BottomNavigationBarThemeData(
+        backgroundColor: darkSlate,
+      ),
+
       appBarTheme: const AppBarTheme(
         backgroundColor: Colors.transparent,
         elevation: 0,
@@ -61,11 +65,7 @@ class AppTheme {
           fontWeight: FontWeight.normal,
           color: textPrimary,
         ),
-        bodyMedium: TextStyle(
-          fontSize: 14,
-          color: textSecondary,
-          height: 1.4,
-        ),
+        bodyMedium: TextStyle(fontSize: 14, color: textSecondary, height: 1.4),
       ),
     );
   }
